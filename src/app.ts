@@ -46,19 +46,19 @@ const fallRender = () => {
     if (!circle.animationEnd) {
       circle.heightDifference = circle.heightDifference + circle.ACCELERATION;
       circle.center.y = circle.center.y + circle.heightDifference;
-      if (circle.maxVerticalDepth - circle.center.y <= 80 && !circle.goingUp) {
+      if (circle.maxVerticalDepth - circle.center.y <= 70 && !circle.goingUp) {
         circle.center.y = circle.maxVerticalDepth;
         circle.goingUp = true;
       }
 
-      if (Math.abs(circle.maxVerticalDepth - circle.maxVerticalHeight) <= 70) {
+      if (Math.abs(circle.maxVerticalDepth - circle.maxVerticalHeight) <= 60) {
         drawStill(circle);
 
         circle.animationEnd = true;
         return;
       }
 
-      if (canvas && circle.center.y + 20 >= canvas?.height) {
+      if (canvas && circle.center.y + 30 >= canvas?.height) {
         circle.heightDifference = -1 * circle.heightDifference;
         circle.goingUp = true;
       }
@@ -76,7 +76,7 @@ const fallRender = () => {
   driverCtx?.drawImage(driverCanvas as CanvasImageSource, 0, 0);
 };
 
-window.addEventListener("click", (e) => {
+window.addEventListener("mousemove", (e) => {
   ballGenerator(e.x, e.y);
 });
 
