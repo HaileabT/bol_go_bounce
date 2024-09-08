@@ -3,6 +3,7 @@ import Circle from "./objects/circle.obj.js";
 
 const canvas = document.getElementById("canvas") as HTMLCanvasElement | null;
 const driverCanvas = new OffscreenCanvas(window.innerWidth, window.innerHeight);
+let fps = 60;
 
 if (canvas) {
   canvas.width = window.innerWidth;
@@ -36,7 +37,7 @@ const drawStill = (circle: Circle): void => {
 };
 
 const fallRender = () => {
-  bolz.forEach((circle, index) => {
+  bolz.forEach((circle) => {
     if (circle.animationEnd) {
       setTimeout(() => {
         delete bolz[bolz.findIndex((bol) => bol === circle)];
@@ -77,6 +78,15 @@ const fallRender = () => {
 
 window.addEventListener("click", (e) => {
   ballGenerator(e.x, e.y);
+});
+
+window.addEventListener("resize", () => {
+  if (canvas) {
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+  }
+  driverCanvas.height = window.innerHeight;
+  driverCanvas.width = window.innerWidth;
 });
 
 const checkAnimationActive = (): boolean => {

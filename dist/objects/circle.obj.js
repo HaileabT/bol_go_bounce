@@ -5,7 +5,7 @@ export default class Circle extends CanvasHelper {
         this.radius = radius;
         this.center = center;
         this.maxVerticalDepth = maxVerticalDepth;
-        this.ACCELERATION = 9;
+        this.ACCELERATION = 9.8;
         this.heightDifference = 0;
         this.goingUp = false;
         this.maxVerticalHeight = Number.MAX_SAFE_INTEGER;

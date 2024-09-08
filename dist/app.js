@@ -2,6 +2,7 @@ import Coordinate from "./misc/coordinates.misc.js";
 import Circle from "./objects/circle.obj.js";
 const canvas = document.getElementById("canvas");
 const driverCanvas = new OffscreenCanvas(window.innerWidth, window.innerHeight);
+let fps = 60;
 if (canvas) {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
