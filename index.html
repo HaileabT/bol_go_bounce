@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="font-family: Arial, Helvetica, sans-serif">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bol bounce, yes</title>
 </head>
-<body>
+<body style="height: 100vh; height: 100svh; width: 100%; overflow: hidden;">
     <canvas id="canvas"></canvas>
     <canvas id="driver-canvas"></canvas>
+    <div style="background-color: rgba(0,0,0,0.1); position: fixed; top: 0; left: 0; width: 100%; height: 100%; display: grid; place-items: center; z-index: -1; opacity: 0.5; font-size: 2rem; text-transform: uppercase;">
+        You Click, Bol Goes Hop 🗿👍
+    </div>
 
     <script src="./dist/app.js" type="module"></script>
 </body>

@@ -5,8 +5,8 @@ const canvas = document.getElementById("canvas") as HTMLCanvasElement | null;
 const driverCanvas = new OffscreenCanvas(window.innerWidth, window.innerHeight);
 
 if (canvas) {
-  canvas.width = window.innerWidth - 20;
-  canvas.height = window.innerHeight - 20;
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
 }
 
 const driverCtx: CanvasRenderingContext2D | null | undefined =
@@ -29,14 +29,19 @@ const ballGenerator = (x: number, y: number): void => {
 const drawStill = (circle: Circle): void => {
   if (ctx) {
     circle.runAnIsolatedDrawing(circle.drawCircle.bind(circle), ctx, {
-      fillStyle: "red",
+      fillStyle: "green",
       lineWidth: 10,
     });
   }
 };
 
 const fallRender = () => {
-  bolz.forEach((circle) => {
+  bolz.forEach((circle, index) => {
+    // if (circle.animationEnd) {
+    //   setTimeout(() => {
+    //     bolz.find(bol => bol === circle);
+    //   }, 3000);
+    // }
     if (!circle.animationEnd) {
       circle.heightDifference = circle.heightDifference + circle.ACCELERATION;
       circle.center.y = circle.center.y + circle.heightDifference;

@@ -3,7 +3,7 @@ import Coordinate from "../misc/coordinates.misc.js";
 import { CanvasHelper } from "../misc/helper.misc.js";
 
 export default class Circle extends CanvasHelper {
-  public ACCELERATION: number = 9.8;
+  public ACCELERATION: number = 4;
   public heightDifference: number = 0;
   public goingUp: boolean = false;
   public maxVerticalHeight: number = Number.MAX_SAFE_INTEGER;

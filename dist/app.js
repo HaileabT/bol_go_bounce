@@ -3,8 +3,8 @@ import Circle from "./objects/circle.obj.js";
 const canvas = document.getElementById("canvas");
 const driverCanvas = new OffscreenCanvas(window.innerWidth, window.innerHeight);
 if (canvas) {
-    canvas.width = window.innerWidth - 20;
-    canvas.height = window.innerHeight - 20;
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 }
 const driverCtx = canvas === null || canvas === void 0 ? void 0 : canvas.getContext("2d");
 const ctx = driverCanvas === null || driverCanvas === void 0 ? void 0 : driverCanvas.getContext("2d");
@@ -18,13 +18,18 @@ const ballGenerator = (x, y) => {
 const drawStill = (circle) => {
     if (ctx) {
         circle.runAnIsolatedDrawing(circle.drawCircle.bind(circle), ctx, {
-            fillStyle: "red",
+            fillStyle: "green",
             lineWidth: 10,
         });
     }
 };
 const fallRender = () => {
-    bolz.forEach((circle) => {
+    bolz.forEach((circle, index) => {
+        // if (circle.animationEnd) {
+        //   setTimeout(() => {
+        //     bolz.find(bol => bol === circle);
+        //   }, 3000);
+        // }
         if (!circle.animationEnd) {
             circle.heightDifference = circle.heightDifference + circle.ACCELERATION;
             circle.center.y = circle.center.y + circle.heightDifference;
