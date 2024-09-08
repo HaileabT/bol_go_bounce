@@ -37,11 +37,11 @@ const drawStill = (circle: Circle): void => {
 
 const fallRender = () => {
   bolz.forEach((circle, index) => {
-    // if (circle.animationEnd) {
-    //   setTimeout(() => {
-    //     bolz.find(bol => bol === circle);
-    //   }, 3000);
-    // }
+    if (circle.animationEnd) {
+      setTimeout(() => {
+        delete bolz[bolz.findIndex((bol) => bol === circle)];
+      }, 3000);
+    }
     if (!circle.animationEnd) {
       circle.heightDifference = circle.heightDifference + circle.ACCELERATION;
       circle.center.y = circle.center.y + circle.heightDifference;
